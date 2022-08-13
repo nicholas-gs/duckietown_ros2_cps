@@ -1,0 +1,13 @@
+repositories:
+    cps/dt_interfaces_cps:
+        type: git
+        url: https://github.com/nicholas-gs/dt_interfaces_cps
+        version: main
+    cps/dt-duckiebot-interface-cps:
+        type: git
+        url: https://github.com/nicholas-gs/dt-duckiebot-interface-cps
+        version: main
+    cps/dt-common-cps:
+        type: git
+        url: https://github.com/nicholas-gs/dt-common-cps
+        version: git
