@@ -10,4 +10,4 @@ repositories:
     cps/dt-common-cps:
         type: git
         url: https://github.com/nicholas-gs/dt-common-cps
-        version: git
+        version: main
