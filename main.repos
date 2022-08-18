@@ -13,5 +13,5 @@ repositories:
         version: main
     thirdparty/lib-dt-vl53l0x:
         type: git
-        url: https://github.com/duckietown/lib-dt-vl53l0x
-        version: master
+        url: https://github.com/nicholas-gs/VL53L0X_rasp_python
+        version: dt_cps
