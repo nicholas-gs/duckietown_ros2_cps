@@ -13,6 +13,12 @@ cd ~/dt_ws
 rosdep install --from-paths src --ignore-src --rosdistro foxy -y
 ```
 
+### Compiling VL53L0X TOF driver from source
+```bash
+cd ~/dt_ws/src/thirdparty/VL53L0X_rasp_python
+make
+```
+
 ### Compilation
 ```bash
 cd ~/dt_ws
