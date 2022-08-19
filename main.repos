@@ -11,7 +11,7 @@ repositories:
         type: git
         url: https://github.com/nicholas-gs/dt-common-cps
         version: main
-    thirdparty/lib-dt-vl53l0x:
+    thirdparty/vl53l0x_driver:
         type: git
         url: https://github.com/nicholas-gs/VL53L0X_rasp_python
-        version: dt_cps
+        version: dt_cps_ros2_pkg
