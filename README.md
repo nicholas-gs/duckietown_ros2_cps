@@ -13,6 +13,13 @@ cd ~/dt_ws
 rosdep install --from-paths src --ignore-src --rosdistro foxy -y
 ```
 
+### Install PiOLED
+Install the Adafruit PiOLED monochrome OLED driver
+```bash
+cd ~/dt_ws/src/others/installPiOLED
+./installPiOLED.sh
+```
+
 ### Compilation
 ```bash
 cd ~/dt_ws

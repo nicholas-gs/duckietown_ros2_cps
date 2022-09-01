@@ -11,7 +11,15 @@ repositories:
         type: git
         url: https://github.com/nicholas-gs/dt-common-cps
         version: main
+    cps/dt-device-health-cps:
+        type: git
+        url: https://github.com/nicholas-gs/dt-device-health-cps
+        version: main
     thirdparty/vl53l0x_driver:
         type: git
         url: https://github.com/nicholas-gs/VL53L0X_rasp_python
         version: dt_cps_ros2_pkg
+    non-ros/installPiOLED:
+        type: git
+        url: https://github.com/JetsonHacksNano/installPiOLED
+        version: master
