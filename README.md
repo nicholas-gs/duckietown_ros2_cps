@@ -16,7 +16,7 @@ rosdep install --from-paths src --ignore-src --rosdistro foxy -y
 ### Install PiOLED
 Install the Adafruit PiOLED monochrome OLED driver
 ```bash
-cd ~/dt_ws/src/others/installPiOLED
+cd ~/dt_ws/src/non-ros/installPiOLED
 ./installPiOLED.sh
 ```
 

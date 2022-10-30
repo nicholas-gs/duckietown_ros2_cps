@@ -11,9 +11,13 @@ repositories:
         type: git
         url: https://github.com/nicholas-gs/dt-common-cps
         version: main
-    cps/dt-device-health-cps:
+    cps/dt-car-interface-cps:
         type: git
-        url: https://github.com/nicholas-gs/dt-device-health-cps
+        url: https://github.com/nicholas-gs/dt-car-interface-cps
+        version: main
+    cps/dt-core-cps:
+        type: git
+        url: https://github.com/nicholas-gs/dt-core-cps
         version: main
     thirdparty/vl53l0x_driver:
         type: git
@@ -23,3 +27,7 @@ repositories:
         type: git
         url: https://github.com/JetsonHacksNano/installPiOLED
         version: master
+    demonstrations/dt-demos-cps:
+        type: git
+        url: https://github.com/nicholas-gs/dt-demos-cps
+        version: main
