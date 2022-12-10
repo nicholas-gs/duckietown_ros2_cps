@@ -1,0 +1,13 @@
+export ROBOT_CONFIGURATION=$(cat ~/duckietown/config/robot_configuration)
+export ROBOT_HARDWARE=$(cat ~/duckietown/config/robot_hardware)
+export ROBOT_TYPE=$(cat ~/duckietown/config/robot_type)
+export ROBOT_NAME=$(cat ~/duckietown/config/robot_name)
+export ROBOT_CALIBRATION_DIR=~/duckietown/config/calibrations
+export HUT_MCU_ENABLE_PIN=5
+
+AUTO_ENABLE_MCU=~/duckietown/autoboot/enable_mcu.py
+if [[ -f "$AUTO_ENABLE_MCU" ]]; then
+    /usr/bin/python3 $AUTO_ENABLE_MCU
+else
+    echo "$AUTO_ENABLE_MCU does not exist, MCU on hut may not be enabled."
+fi
