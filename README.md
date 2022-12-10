@@ -30,6 +30,8 @@ The files in `~/duckietown/config` are used to store configuration settings for 
 We need the following dependencies to use the hardware on the jetson nano.
 
 ```bash
+pip3 install wheel
+
 sudo apt install -y \
     i2c-tools \
     v4l-utils \
@@ -41,23 +43,25 @@ sudo apt install -y \
 
 ```bash
 # usb permissions
-sudo usermod -aG dialout jetson
+sudo usermod -aG dialout $USER
 
 # i2c permissions
-sudo usermod -aG i2c jetson
+sudo usermod -aG i2c $USER
 
 # gpio permissions
 sudo groupadd -f -r gpio
-sudo usermod -aG gpio jetson
+sudo usermod -aG gpio $USER
 
 # video permissions
 sudo groupadd -f -r video
-sudo usermod -aG video jetson
+sudo usermod -aG video $USER
+
+sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
 ## OpenCV/Gstreamer
 
-
+Gstreamer and Opencv should be installed by default. Just make sure that Opencv was compiled with gstreamer support using `cv2.getBuildInformation()`.
 
 ## Download the source code for Duckietown
 
@@ -69,16 +73,31 @@ vcs import src < main.repos
 ```
 
 ## Install Duckietown dependencies
-```bash
-cd ~/dt_ws
-rosdep install --from-paths src --ignore-src --rosdistro foxy -y
 
+Since the L4T image is based off Ubuntu 18.04 which is a not officially supported OS for Foxy, using `rosdep` is likely to cause complications due to depedency chains.
+
+```bash
+# Example only, not recommended to run!
+rosdep install --from-paths src --ignore-src --rosdistro foxy --os ubuntu:focal -y
+```
+
+So instead we install the dependencies manually.
+```bash
+pip3 install smbus \
+    smbus2 \
+    transforms3d \
+    dataclasses \
+    numpy \
+    pyserial \
+    semver
+
+sudo apt update
 # Install the Adafruit PiOLED monochrome OLED driver
 cd ~/dt_ws/src/non-ros/installPiOLED
 ./installPiOLED.sh
 ```
 
-## Compilation
+## Compile Duckietown codebase
 ```bash
 cd ~/dt_ws
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
