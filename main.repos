@@ -31,3 +31,7 @@ repositories:
         type: git
         url: https://github.com/nicholas-gs/dt-demos-cps
         version: main
+    demonstrations/dt_fake_camera:
+        type: git
+        url: https://github.com/nicholas-gs/ros2_video_streamer
+        version: master
