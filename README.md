@@ -105,3 +105,50 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
 echo "source ~/dt_ws/install/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
+
+# Laptop
+
+You can run packages and demos that don't require Duckietown hardware, such as the image processing packages. This assumes you already have ROS2 foxy installed on Ubuntu 20.04.
+
+
+## Prepare directory structure
+
+```bash
+cd ~
+git clone --branch main https://github.com/nicholas-gs/duckietown_ros2_cps
+mv duckietown_ros2_cps/duckietown ~/
+# We don't need the cloned repo anymore
+rm -r duckietown_ros2_cps/
+```
+
+The files in `~/duckietown/config` are used to store configuration settings for duckietown. You should still make sure that the settings are the same for as if you are running the robot.
+
+## OpenCV/Gstreamer
+
+Make sure you have Gstreamer and Opencv installed and that Opencv was compiled with gstreamer support using `cv2.getBuildInformation()`.
+
+
+## Download the source code for Duckietown
+
+```bash
+mkdir -p ~/dt_ws/src
+cd ~/dt_ws
+wget https://raw.githubusercontent.com/nicholas-gs/duckietown_ros2_cps/main/main.repos
+vcs import src < main.repos
+```
+
+## Install Duckietown dependencies
+
+```bash
+cd ~/dt_ws/src
+rosdep install --from-paths src --ignore-src --rosdistro foxy --os ubuntu:focal -y
+```
+
+## Compile Duckietown codebase
+```bash
+cd ~/dt_ws
+colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
+
+echo "source ~/dt_ws/install/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
