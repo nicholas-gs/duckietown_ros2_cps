@@ -63,6 +63,22 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 Gstreamer and Opencv should be installed by default. Just make sure that Opencv was compiled with gstreamer support using `cv2.getBuildInformation()`.
 
+## Fix Red/Pink tint of IMX219 Camera
+
+A reddish/pink tint may be present when capturing using the IMX219 camera,
+which will interfere with color detection. Try the following to fix the issue.
+
+```bash
+# Taken from https://www.waveshare.com/wiki/IMX219-160_Camera
+cd ~/
+wget https://www.waveshare.com/w/upload/e/eb/Camera_overrides.tar.gz
+tar zxvf Camera_overrides.tar.gz
+sudo cp camera_overrides.isp /var/nvidia/nvcam/settings/
+
+sudo chmod 664 /var/nvidia/nvcam/settings/camera_overrides.isp
+sudo chown root:root /var/nvidia/nvcam/settings/camera_overrides.isp
+```
+
 ## Download the source code for Duckietown
 
 ```bash
