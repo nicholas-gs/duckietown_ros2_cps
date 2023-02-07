@@ -63,6 +63,8 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 Gstreamer and Opencv should be installed by default. Just make sure that Opencv was compiled with gstreamer support using `cv2.getBuildInformation()`.
 
+The default cv2 version installed should be 4.1. If not, follow this [guide](https://www.youtube.com/watch?v=3QYayL5y2hk) for a work around.
+
 ## Fix Red/Pink tint of IMX219 Camera
 
 A reddish/pink tint may be present when capturing using the IMX219 camera,
